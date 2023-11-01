@@ -12,14 +12,12 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CourseLibraryApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(CourseLibraryApplication.class, args);
 	}
 
 	@Bean
 	public CommandLineRunner initialCreate(BookService bookService){
-
 		return args -> {
 			Book book1 = new Book("ABC", "Book name", "My first book");
 			Author author1 = new Author("Test name1", "Test description");
