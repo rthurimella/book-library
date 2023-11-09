@@ -9,31 +9,28 @@ import java.util.List;
 
 @Service
 public class BookService {
-
     @Autowired
     private BookRepository bookRepository;
 
-    public List<Book> findAllBooks(){
+    public List<Book> findAllBooks() {
         return bookRepository.findAll();
     }
 
-    public Book findBookById(Long id){
-        Book book = bookRepository.findById(id).orElseThrow(()-> new RuntimeException("book not found"));
+    public Book findBookById(Long id) {
+        Book book = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
         return book;
     }
 
     public void createBook(Book book){
         bookRepository.save(book);
     }
+
     public void updateBook(Book book){
         bookRepository.save(book);
     }
 
     public void deleteBook(Long id){
-        Book book = bookRepository.findById(id).orElseThrow(()-> new RuntimeException("book not found"));
+        Book book = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found"));
         bookRepository.deleteById(book.getId());
     }
-
 }
-
-
